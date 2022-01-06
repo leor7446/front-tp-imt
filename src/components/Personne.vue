@@ -1,34 +1,29 @@
 <template>
-  <!-- A COMPLETER -->
-<div v-if="currentPersonne">
-  <input type="text" class="name" id="name" v-model="currentPersonne.name" />
-  <input type="text" class="surname" id="surname" v-model="currentPersonne.surname" />
-  <input type="text" class="phone" id="phone" v-model="currentPersonne.phone" />
-  <input type="text" class="city" id="city" v-model="currentPersonne.city" />
+  <!-- concerne la page de modification et suppression-->
+    <div v-if="currentPersonne">
+      <input type="text" class="name text-center" id="name" v-model="currentPersonne.name" />
+      <input type="text" class="surname text-center" id="surname" v-model="currentPersonne.surname" />
+      <input type="text" class="phone text-center" id="phone" v-model="currentPersonne.phone" />
+      <input type="text" class="city text-center" id="city" v-model="currentPersonne.city" />
+    </div>
+    
+  <div v-else>
+    <br />
+    <p>N'existe pas</p>
+  </div>
 
-</div>
-<div v-else>
-  <br />
-  <p>N'existe pas</p>
-</div>
+  <div class="text-left">
+    <button class="badge badge-danger mr-2 rounded-pill" data-bs-toggle="button" @click="deletePersonne">Supprimer</button>
+  </div>
+  
+  <div class="text-left">
+   <button type="submit" class="badge badge-success mr-2 rounded-pill" data-bs-toggle="button" @click="updatePersonne">Modifier</button>
+  </div>
 
-
-  <!-- A INCLURE DANS LE FORM -->
-  <button class="badge badge-danger mr-2"
-  @click="deletePersonne"
-  >
-  Supprimer
-</button>
-
-<!-- A INCLURE DANS LE FORM -->
-<button type="submit" class="badge badge-success"
-@click="updatePersonne"
->
-Modifier
-</button>
 <p>{{ message }}</p>
 
 </template>
+
 
 <script>
   import PersonneDataService from "../services/PersonneDataService";

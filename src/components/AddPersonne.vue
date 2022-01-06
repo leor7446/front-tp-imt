@@ -1,19 +1,20 @@
 <template>
+  <!-- concerne la page d'ajout -->
   <div class="submit-form">
     <div v-if="!submitted">
-                            <!-- A COMPLETER -->
-      <input type="text" class="..." id="XXX" required v-model="personne.name" name="XXX"/>
-      <input type="text" class="..." id="XXX" required v-model="personne.XXX" name="XXX"/>
-      <input type="text" class="..." id="XXX" required v-model="personne.XXX" name="XXX"/>
-      <input type="text" class="..." id="XXX" required v-model="personne.XXX" name="XXX"/>
-
-
-      <button @click="creerPersonne" class="btn btn-success">Ajouter</button>
+      <input type="text" placeholder="Nom" class="name" id="name" required v-model="personne.name" name="XXX"/>
+      <input type="text" placeholder="Prénom" class="surname" id="surname" required v-model="personne.surname" name="XXX"/>
+      <input type="text" placeholder="Téléphone" class="phone" id="phone" required v-model="personne.phone" name="XXX"/>
+      <input type="text" placeholder="Ville" class="city" id="city" required v-model="personne.city" name="XXX"/>
+      
+      <div>
+        <button @click="creerPersonne" class="badge badge-success mr-2 rounded-pill">Ajouter</button>
+      </div>
     </div>
 
     <div v-else>
-      <h4>Personne ajoutée avec succès!</h4>
-      <button class="btn btn-success" @click="resetForm">Ajouter une nouvelle personne</button>
+      <h2>Personne ajoutée avec succès!</h2>
+      <button class="badge badge-success mr-2 rounded-pill" @click="resetForm">Ajouter une nouvelle personne</button>
     </div>
   </div>
 </template>
@@ -44,16 +45,16 @@
           city: this.personne.city,
         };
 
-      // A COMPLETER
-        PersonneDataService.create(data)
-        .then(response => {
-          console.log(response.data);
-          this.submitted = true;
-        })
-        .catch(e => {
-          console.log(this.currentPersonne);
-          console.log(e);
-        });
+      
+      PersonneDataService.create(data)
+      .then(response => {
+        console.log(response.data);
+        this.submitted = true;
+      })
+      .catch(e => {
+        console.log(this.currentPersonne);
+        console.log(e);
+      });
     },
     
     resetForm() {
