@@ -1,10 +1,11 @@
 <template>
   <!-- concerne la page de modification et suppression-->
+  <div class="text-center">
     <div v-if="currentPersonne">
-      <input type="text" class="name text-center" id="name" v-model="currentPersonne.name" />
-      <input type="text" class="surname text-center" id="surname" v-model="currentPersonne.surname" />
-      <input type="text" class="phone text-center" id="phone" v-model="currentPersonne.phone" />
-      <input type="text" class="city text-center" id="city" v-model="currentPersonne.city" />
+      <input type="text" class="name text-center d-block p-2" id="name" v-model="currentPersonne.name" />
+      <input type="text" class="surname text-center d-block p-2" id="surname" v-model="currentPersonne.surname" />
+      <input type="text" class="phone text-center d-block p-2" id="phone" v-model="currentPersonne.phone" />
+      <input type="text" class="city text-center d-block p-2" id="city" v-model="currentPersonne.city" />
     </div>
     
   <div v-else>
@@ -13,14 +14,16 @@
   </div>
 
   <div class="text-left">
-    <button class="badge badge-danger mr-2 rounded-pill" data-bs-toggle="button" @click="deletePersonne">Supprimer</button>
+    <button class="badge badge-danger rounded-pill" data-bs-toggle="button" @click="deletePersonne">Supprimer</button>
   </div>
   
   <div class="text-left">
-   <button type="submit" class="badge badge-success mr-2 rounded-pill" data-bs-toggle="button" @click="updatePersonne">Modifier</button>
+   <button type="submit" class="badge badge-success rounded-pill" data-bs-toggle="button" @click="updatePersonne">Modifier</button>
   </div>
 
 <p>{{ message }}</p>
+</div>
+
 
 </template>
 
